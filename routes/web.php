@@ -25,3 +25,5 @@ Route::get('/monty-hall', [GameController::class, 'montyHall']);
 
 Route::get('/form', [RequestSampleController::class, 'form']);
 Route::get('/query-strings', [RequestSampleController::class, 'queryStrings']);
+Route::get('/users/{id}',[RequestSampleController::class, 'profile']);
+Route::get('/products/{category}/{year}',[RequestSampleController::class, 'productsArchive']);
