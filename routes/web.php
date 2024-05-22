@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\RequestSampleController;
+use App\Http\Controllers\EventController;
 
 // Route::get('/', function () {
     // return view('welcome');
@@ -30,3 +31,6 @@ Route::get('/products/{category}/{year}',[RequestSampleController::class, 'produ
 Route::get('/route-link', [RequestSampleController::class, 'route-link']);
 Route::get('/login', [RequestSampleController::class, 'loginForm']);
 Route::post('/login',[RequestSampleController::class, 'login']) ->name('login');
+
+
+Route::resource('/events', EventController::class)-> only(['create', 'store']);
