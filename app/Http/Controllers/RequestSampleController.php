@@ -31,10 +31,23 @@ class RequestSampleController extends Controller
     //     return 'プロフィールページのURLは'. $url;
     //  }
     public function routeLink()
-{
-    $url = route('profile', ['id' => 1, 'photos' => 'yes']);
-    return 'プロフィールページのURLは' . $url;
-}
+    {
+        $url = route('profile', ['id' => 1, 'photos' => 'yes']);
+        return 'プロフィールページのURLは' . $url;
+    }
+
+		public function loginForm() 
+		{
+			return view('login');
+		}
+
+    public function login(Request $request)
+    {
+        if ($request->get('email') === 'user@example.com' && $request->get('password') === '12345678') {
+            return 'ログイン成功';
+        }
+        return 'ログイン失敗';
+    }
 
 }
 
