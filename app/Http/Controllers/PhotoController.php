@@ -19,7 +19,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+      return view('photo.create');
     }
 
     /**
