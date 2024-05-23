@@ -5,8 +5,6 @@
     @if(session()->has('success'))
       <p>{{session()->get('success')}}</p>
     @endif
-    @csrf
-    <label>画像:<input type="file" name="image"></label>
-    <button type="submit">アップロード</button>
+    <img src="{{asset('storage/photos/'. $fileName)}}" alt="">
   </form>
 @endsection

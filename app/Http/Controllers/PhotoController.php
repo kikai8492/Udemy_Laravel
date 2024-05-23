@@ -19,7 +19,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-      return view('photo.create');
+      return view('photos.create');
     }
 
     /**
@@ -27,15 +27,20 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $savedFilePath = $request->file('image')->store('photos','public');
+      Log::debug($savedFilePath);
+      $fileName = pathinfo($savedFilePath, PATHINFO_BASENAME);
+      Log::debug($fileName);
+
+      return to_route('photos.show', ['photo' => $fileName])->with('success', 'アップロードしました');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $fileName)
     {
-        //
+      return view('photos.show',['fileName' => $fileName]);
     }
 
     /**
